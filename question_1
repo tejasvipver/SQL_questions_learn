@@ -1,4 +1,16 @@
-Q - # WAQ to display the records which have 3 or more consecutive rows with no of people than 100(inclusive) each day
+Q - to find 2nd highest salary from a table
+A- select max(sal) from emp where sal<(select max(sal) from emp);
+or  select max(sal) from emp where sal not in (select max(sal) from emp);
+
+Q- Write a query that calculates the difference between the highest salaries found in the marketing and engineering departments. Output just the absolute difference in salaries.
+A- select (e1.MaxEngSalry - e2.MaxMarSalary) as salaryDiff from (select max(salary) as MaxEngSalry from db_employee where department_id=4) as e1, (select max(salary) as MaxMarSalary from db_employee where department_id=1) as e2
+
+A- import pandas as pd 
+maxENgsal = db_employee[db_employee['department_id']==1]['salary'].max()
+maxMarsal = db_employee[db_employee['department_id']==4]['salary'].max()
+print(abs(maxENgsal-maxMarsal))
+
+Q- # WAQ to display the records which have 3 or more consecutive rows with no of people than 100(inclusive) each day
 sol - 
 table schema - 
 
